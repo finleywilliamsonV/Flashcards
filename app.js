@@ -12,6 +12,8 @@ app.get('/hello', (req, res) => {
   res.send("<h3>Hello, I Love Eating PEOPLE'S ASSES!</h3>"); // sends a response to the client
 });
 
+// shit
+
 app.listen(3000, () => {
   console.log('The application is running on localhost:3000');
 });
