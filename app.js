@@ -1,10 +1,12 @@
 const express = require('express'),
-      bodyParser = require('body-parser');
+      bodyParser = require('body-parser'),
+      cookieParser = require('cookie-parser');
 
 const app = express();
 
 app.set('view engine', 'pug');  // tells express which template engine to use (default -> '/views')
 app.use(bodyParser.urlencoded({extended: false}));  // look this up every time?
+app.use(cookieParser());
 
 // handle get requests to the home route
 app.get('/', (req, res) => {
@@ -22,11 +24,12 @@ app.get('/cards', (req, res) => {
 
 // handle get requests to the hello route
 app.get('/hello', (req, res) => {
-  res.render('hello');
+  res.render('hello', {name: req.cookies.username});
 });
 
 // handle post requests to the hello route
 app.post('/hello', (req, res) => {
+  res.cookie('username', req.body.username);
   res.render('hello', {name: req.body.username});
 });
 
