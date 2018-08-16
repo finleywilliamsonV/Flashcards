@@ -14,7 +14,8 @@ app.set('view engine', 'pug');  // tells express which template engine to use (d
 
 // handle get requests to the home route
 app.get('/', (req, res) => {
-  res.send("<h1>I Love Eating Ass!</h1>"); // sends a response to the client
+  //res.send("<h1>I Love Eating Ass!</h1>"); // sends a response to the client
+  res.render('index');
 });
 
 // handle get requests to the cards route
