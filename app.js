@@ -1,16 +1,10 @@
-const express = require('express');
+const express = require('express'),
+      bodyParser = require('body-parser');
 
 const app = express();
 
-const names = [
-              {firstName:'Linder', lastName:'Begins'},
-              {firstName:'Sheepy', lastName:'Fordmespo'},
-              {firstName:'Dargris', lastName:'Plomind'},
-              {firstName:'Queet', lastName:'Vros-McDab'},
-              {firstName:'Chimdobu', lastName:'Skiffnancy'},
-            ];
-
 app.set('view engine', 'pug');  // tells express which template engine to use (default -> '/views')
+app.use(bodyParser.urlencoded({extended: false}));  // look this up every time?
 
 // handle get requests to the home route
 app.get('/', (req, res) => {
@@ -26,7 +20,17 @@ app.get('/cards', (req, res) => {
                     }); // automatically looks for files with a .pug extension
 });
 
-// sandbox route to test/experiment with PUG features
+// handle get requests to the hello route
+app.get('/hello', (req, res) => {
+  res.render('hello');
+});
+
+// handle post requests to the hello route
+app.post('/hello', (req, res) => {
+  res.render('hello', {name: req.body.username});
+});
+
+// handle sandbox route to test/experiment with PUG features
 app.get('/sandbox', (req, res) => {
   res.render('sandbox', {names}); 
 });
@@ -34,3 +38,14 @@ app.get('/sandbox', (req, res) => {
 app.listen(3000, () => {
   console.log('The application is running on localhost:3000');
 });
+
+
+
+// FOR USE IN SANDBOX
+const names = [
+  {firstName:'Linder', lastName:'Begins'},
+  {firstName:'Sheepy', lastName:'Fordmespo'},
+  {firstName:'Dargris', lastName:'Plomind'},
+  {firstName:'Queet', lastName:'Vros-McDab'},
+  {firstName:'Chimdobu', lastName:'Skiffnancy'},
+];
