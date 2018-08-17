@@ -9,5 +9,4 @@ router.get('/', (req, res) => { // every route will start with cards since its b
                     }); // automatically looks for files with a .pug extension
 });
 
-// one comment?
 module.exports = router;
