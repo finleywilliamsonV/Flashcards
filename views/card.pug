@@ -7,7 +7,13 @@ block content
       p
         i Hint: #{hint}
 
-    if side==="question"
-      a(href=`${querylessUrl}?side=answer`) ANSWER
+    if hint
+      button(style={"background-color":"lightblue", border:"1px black solid"})
+        a(href=`${querylessUrl}?side=answer` style={"text-decoration":"none",padding:"10px 40px"}) ANSWER
     else
-      a(href=`${querylessUrl}?side=question`) QUESTION
+      button(style={"background-color":"lightblue", border:"1px black solid"})
+        a(href=`${querylessUrl}?side=question` style={"text-decoration":"none",padding:"10px 40px"}) QUESTION
+
+    br
+    br
+    a(href="/cards") NEXT CARD

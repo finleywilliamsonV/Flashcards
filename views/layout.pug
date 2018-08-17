@@ -7,6 +7,13 @@ html(lang="en")
     //- includes header components
     include includes/header.pug
 
+    if name
+      h2 Welcome, #{name}!
+
+      form#goodbye-button(action="/goodbye", method="POST")
+        button(type="submit") GOODBYE
+      br
+
     //- any template extending the layout puts html here
     block content
     
