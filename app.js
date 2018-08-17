@@ -9,57 +9,18 @@ app.use(cookieParser());
 
 app.set('view engine', 'pug');  // tells express which template engine to use (default -> '/views')
 
-// handle get requests to the home route
-app.get('/', (req, res) => {
-  //res.send("<h1>I Love Eating Ass!</h1>"); // sends a response to the client
-  const name = req.cookies.username;
-  if (name) {
-    res.render('index', {name});  // same as {name: name}
-  } else {
-    res.redirect('/hello')
-  }
-});
+const mainRoutes = require('./routes'); // bc file is index.html it is automatically selected
+const cardRoutes = require('./routes/cards');
 
-// handle get requests to the cards route
-app.get('/cards', (req, res) => {
-  res.render('card', {
-                      prompt: 'Who is inside my urethra?',
-                      hint: 'Think about my favorite dinger buddy.'
-                    }); // automatically looks for files with a .pug extension
-});
-
-// handle get requests to the hello route
-app.get('/hello', (req, res) => {
-  const name = req.cookies.username;
-  if (!name){
-    res.render('hello');
-  } else {
-    res.redirect('/');
-  }
-});
-
-// handle post requests to the hello route
-app.post('/hello', (req, res) => {
-  res.cookie('username', req.body.username);
-  res.redirect('/');
-});
-
-// handle POST requests to the goodbye route
-app.post('/goodbye', (req, res) => {
-  res.clearCookie('username');
-  res.redirect('/hello');
-});
-
-// handle sandbox route to test/experiment with PUG features
-app.get('/sandbox', (req, res) => {
-  res.render('sandbox', {names}); 
-});
+app.use(mainRoutes);
+app.use('/cards', cardRoutes);
 
 // 404
 app.use((req,res,next)=>{
   const err = new Error('Not Found');
   err.status = 404;
   next(err);
+  // res.status(404).send("FUCK");
 });
 
 // error handler
