@@ -5,13 +5,18 @@ const express = require('express'),
 const app = express();
 
 app.set('view engine', 'pug');  // tells express which template engine to use (default -> '/views')
-app.use(bodyParser.urlencoded({extended: false}));  // look this up every time?
+app.use(bodyParser.urlencoded({extended: false}));  // look this up every time? Used to parse the body of the response from the server
 app.use(cookieParser());
 
 // handle get requests to the home route
 app.get('/', (req, res) => {
   //res.send("<h1>I Love Eating Ass!</h1>"); // sends a response to the client
-  res.render('index');
+  const name = req.cookies.username;
+  if (name) {
+    res.render('index', {name});  // same as {name: name}
+  } else {
+    res.redirect('/hello')
+  }
 });
 
 // handle get requests to the cards route
@@ -24,13 +29,24 @@ app.get('/cards', (req, res) => {
 
 // handle get requests to the hello route
 app.get('/hello', (req, res) => {
-  res.render('hello', {name: req.cookies.username});
+  const name = req.cookies.username;
+  if (!name){
+    res.render('hello');
+  } else {
+    res.redirect('/');
+  }
 });
 
 // handle post requests to the hello route
 app.post('/hello', (req, res) => {
   res.cookie('username', req.body.username);
-  res.render('hello', {name: req.body.username});
+  res.redirect('/');
+});
+
+// handle POST requests to the goodbye route
+app.post('/goodbye', (req, res) => {
+  res.clearCookie('username');
+  res.redirect('/hello');
 });
 
 // handle sandbox route to test/experiment with PUG features

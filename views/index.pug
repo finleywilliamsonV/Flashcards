@@ -2,4 +2,7 @@ extends layout.pug
 
 block content
   section#content
-   h2 Welcome, Student!
+   h2 Welcome, #{name}!
+
+  form#goodbye-button(action="/goodbye", method="POST")
+    button(type="submit") GOODBYE
