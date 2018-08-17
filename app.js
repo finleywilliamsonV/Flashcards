@@ -4,9 +4,10 @@ const express = require('express'),
 
 const app = express();
 
-app.set('view engine', 'pug');  // tells express which template engine to use (default -> '/views')
 app.use(bodyParser.urlencoded({extended: false}));  // look this up every time? Used to parse the body of the response from the server
 app.use(cookieParser());
+
+app.set('view engine', 'pug');  // tells express which template engine to use (default -> '/views')
 
 // handle get requests to the home route
 app.get('/', (req, res) => {
@@ -52,6 +53,21 @@ app.post('/goodbye', (req, res) => {
 // handle sandbox route to test/experiment with PUG features
 app.get('/sandbox', (req, res) => {
   res.render('sandbox', {names}); 
+});
+
+// 404
+app.use((req,res,next)=>{
+  const err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
+// error handler
+app.use((err, req, res, next) => {
+  res.locals.error = err;   // when using a view engine with Express, you can set intermediate data on res.locals
+  res.status(err.status);
+  res.render('error');
+  next();
 });
 
 app.listen(3000, () => {
