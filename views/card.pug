@@ -2,9 +2,12 @@ extends layout.pug
 
 block content
   section#content
-    h2= prompt
+    h2= text
     if hint
       p
         i Hint: #{hint}
+
+    if side==="question"
+      a(href=`${querylessUrl}?side=answer`) ANSWER
     else
-      p There is no hint.
+      a(href=`${querylessUrl}?side=question`) QUESTION
