@@ -98,7 +98,7 @@ input {
 .namecard-greeting {
   font-size: 1em;
   font-weight: 400;
-  width: 50%;
+  width: 80%;
 }
 
 .namecard-form {
@@ -115,6 +115,8 @@ input {
 .namecard-name {
   display: block;
   margin: 20px auto;
+  background-color: lightgray;
+  width: 90%;
 }
 
 .namecard-submit {
@@ -141,7 +143,7 @@ input {
 }
 
 .namecard-exit {
-  width: 50%;
+  width: 20%;
   text-align: right;
 }
 
@@ -172,7 +174,7 @@ input {
   min-height: 425px;
   box-sizing: border-box;
   margin: auto;
-  padding-bottom: 30px;
+  padding-bottom: 50px;
   color: #727C85;
   text-align: center;
   border-radius: 20px;
