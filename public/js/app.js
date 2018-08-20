@@ -6,11 +6,12 @@ const app = express();
 
 app.use(bodyParser.urlencoded({extended: false}));  // look this up every time? Used to parse the body of the response from the server
 app.use(cookieParser());
+app.use('/static', express.static('public'));
 
 app.set('view engine', 'pug');  // tells express which template engine to use (default -> '/views')
 
-const mainRoutes = require('./routes'); // bc file is index.html it is automatically selected
-const cardRoutes = require('./routes/cards');
+const mainRoutes = require('../../routes'); // bc file is index.html it is automatically selected
+const cardRoutes = require('../../routes/cards');
 
 app.use(mainRoutes);
 app.use('/cards', cardRoutes);

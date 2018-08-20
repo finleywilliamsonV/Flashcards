@@ -2,20 +2,11 @@ doctype html
 html(lang="en")
   head
     title Flash Cards
+    link(rel='stylesheet', href="/static/stylesheets/style.css")
   body
 
     //- includes header components
     include includes/header.pug
 
-    if name
-      h2 Welcome, #{name}!
-
-      form#goodbye-button(action="/goodbye", method="POST")
-        button(type="submit") GOODBYE
-      br
-
     //- any template extending the layout puts html here
-    block content
-    
-//- includes footer component
-include includes/footer.pug
+    block main

@@ -1,8 +1,11 @@
-extends layout.pug
+extends app.pug
 
-block content
-  section#content
-    
-
-  p
-    a(href="/cards") GO TO FLASHCARDS
+block intro
+  h1.namecard-prompt Let's get started
+  form.card-set-select-form(action='/cards' method='POST')
+    label(for='card-set-select') Choose a card set:
+    select#card-set-select(name='cardSet')
+      option(value='javascript') JavaScript
+      option(value='random') Random
+    input.namecard-submit(type='submit' value='Begin!')
+  
