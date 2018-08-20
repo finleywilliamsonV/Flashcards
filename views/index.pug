@@ -1,8 +1,6 @@
-extends layout.pug
+extends app.pug
 
-block content
-  section#content
-    
-
-  p
-    a(href="/cards") GO TO FLASHCARDS
+block intro
+  h1.namecard-prompt Let's get started
+  a.namecard-submit(href='/cards') Begin!
+  

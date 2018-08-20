@@ -20,20 +20,22 @@ router.get('/:id', (req, res) => { // '/:id' tells express that [:id] is a varia
   if(!side) {
     return res.redirect(`/cards/${id}?side=question`);
   }
-
   const name = req.cookies.username;
-  const text = cards[id][side]; // shows either question or answer, @ sideß
-  const {hint} = cards[id]; // shows cards[id].hint
+  const text = cards[id][side];
+  const { hint } = cards[id];
+  
+  const templateData = { id, text, name, side };
 
-  const querylessUrl = req.baseUrl + req.path;
-
-  const templateData = {querylessUrl, text, name}; // creates JSON object to pass to render
-
-  if (side === 'question') {
+  if ( side === 'question' ) {
     templateData.hint = hint;
+    templateData.sideToShow = 'answer';
+    templateData.sideToShowDisplay = 'Answer';
+  } else if ( side === 'answer' ) {
+    templateData.sideToShow = 'question';
+    templateData.sideToShowDisplay = 'Question';
   }
 
-  res.render('card', templateData); // automatically looks for files with a .pug extension
+  res.render('card', templateData);
 
 });
 

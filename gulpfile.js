@@ -7,7 +7,7 @@ gulp.task('default', () => {
 
   console.log(' - nodemon started -');
   nodemon({
-    script: 'app.js',
+    script: 'public/js/app.js',
     ext: 'js json'
   })
 });
