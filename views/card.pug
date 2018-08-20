@@ -2,9 +2,18 @@ extends layout.pug
 
 block content
   section#content
-    h2= prompt
+    h2= text
     if hint
       p
         i Hint: #{hint}
+
+    if hint
+      button(style={"background-color":"lightblue", border:"1px black solid"})
+        a(href=`${querylessUrl}?side=answer` style={"text-decoration":"none",padding:"10px 40px"}) ANSWER
     else
-      p There is no hint.
+      button(style={"background-color":"lightblue", border:"1px black solid"})
+        a(href=`${querylessUrl}?side=question` style={"text-decoration":"none",padding:"10px 40px"}) QUESTION
+
+    br
+    br
+    a(href="/cards") NEXT CARD
