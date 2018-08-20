@@ -1,32 +1,54 @@
 {
-  "data": {
-      "title": "JavaScript Flashcards",
-      "cards": [
-          {
-              "question": "What language are Express apps written in?",
-              "hint": "It starts with a \"J\"",
-              "answer": "JavaScript"
-          },
-          {
-              "question": "What is one way a website can store data in a user's browser?",
-              "hint": "They are delicious with milk",
-              "answer": "Cookies"
-          },
-          {
-              "question": "What is a common way to shorten the response object's name inside middleware?",
-              "hint": "It has the same abbreviation as \"resolution\"",
-              "answer": "res"
-          },
-          {
-              "question": "How many different values can booleans have?",
-              "hint": "Think: binary",
-              "answer": "2"
-          },
-          {
-              "question": "Which HTML element can contain JavaScript?",
-              "hint": "It starts with an \"s\"",
-              "answer": "<script>"
-          }
-      ]
-  }
+    "data": {
+        "javascript": {
+            "title": "JavaScript Flashcards",
+            "cards": [
+                {
+                    "question": "What language are Express apps written in?",
+                    "hint": "It starts with a \"J\"",
+                    "answer": "JavaScript"
+                },
+                {
+                    "question": "What is one way a website can store data in a user's browser?",
+                    "hint": "They are delicious with milk",
+                    "answer": "Cookies"
+                },
+                {
+                    "question": "What is a common way to shorten the response object's name inside middleware?",
+                    "hint": "It has the same abbreviation as \"resolution\"",
+                    "answer": "res"
+                },
+                {
+                    "question": "How many different values can booleans have?",
+                    "hint": "Think: binary",
+                    "answer": "2"
+                },
+                {
+                    "question": "Which HTML element can contain JavaScript?",
+                    "hint": "It starts with an \"s\"",
+                    "answer": "<script>"
+                }
+            ]
+        },
+        "random": {
+            "title": "Random Flashcards",
+            "cards": [
+                {
+                    "question": "How many dingers face the dinger train?",
+                    "hint": "More than 4, less than 3",
+                    "answer": "SHUT UP"
+                },
+                {
+                    "question": "What AHHH SHIT lemon AHH EFF? (shit-lemon)",
+                    "hint": "My cooks are a l l  a  b l a z e",
+                    "answer": "Feper me no Redogan."
+                },
+                {
+                    "question": "When stupid didst fromst thine own quarrel?",
+                    "hint": "Most HASTE",
+                    "answer": "The Notebook, starring Jeff Deeznuts"
+                }
+            ]
+        }
+    }
 }

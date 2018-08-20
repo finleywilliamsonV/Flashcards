@@ -142,6 +142,10 @@ input {
   transition: all 0.3s;
 }
 
+input.namecard-submit {
+  height: 40px;
+}
+
 .namecard-exit {
   width: 20%;
   text-align: right;
@@ -257,7 +261,10 @@ input {
   position: absolute;
   bottom: 10px;
   left: 20px;
-  padding-left: 500px:
+}
+
+form.card-set-select-form {
+  margin-top: 20px;
 }
 
 .card-flip {
