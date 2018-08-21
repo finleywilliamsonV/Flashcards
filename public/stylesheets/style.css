@@ -267,6 +267,11 @@ form.card-set-select-form {
   margin-top: 20px;
 }
 
+#card-set-select {
+  margin-left: 5px;
+  width: 30%;
+}
+
 .card-flip {
   max-width: 25px;
   background-color: #fff;
