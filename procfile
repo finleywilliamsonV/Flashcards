@@ -1,1 +1,1 @@
-web: NODE_ENV===development node public public/js/app.js
+web: NODE_ENV===development node public app.js

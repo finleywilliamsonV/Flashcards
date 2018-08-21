@@ -10,8 +10,8 @@ app.use('/static', express.static('public'));
 
 app.set('view engine', 'pug');  // tells express which template engine to use (default -> '/views')
 
-const mainRoutes = require('../../routes'); // bc file is index.html it is automatically selected
-const cardRoutes = require('../../routes/cards');
+const mainRoutes = require('./routes'); // bc file is index.html it is automatically selected
+const cardRoutes = require('./routes/cards');
 
 app.use(mainRoutes);
 app.use('/cards', cardRoutes);
