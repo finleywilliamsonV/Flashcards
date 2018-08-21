@@ -39,11 +39,6 @@ app.listen(PORT, () => {
 });
 
 
-
-
-
-
-
 // FOR USE IN SANDBOX
 const names = [
   {firstName:'Linder', lastName:'Begins'},
