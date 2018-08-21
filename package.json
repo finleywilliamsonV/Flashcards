@@ -5,7 +5,8 @@
   "main": "public/js/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node public/js/app.js"
+    "start": "NODE_ENV=development node public/js/app.js",
+    "prod": "NODE_ENV=production node public/js/app.js"
   },
   "author": "flwv",
   "license": "ISC",

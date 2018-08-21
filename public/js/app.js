@@ -32,9 +32,17 @@ app.use((err, req, res, next) => {
   next();
 });
 
-app.listen(3000, () => {
-  console.log('The application is running on localhost:3000');
+let PORT = process.env.NODE_ENV === 'development'
+  ? 3000
+  : 80
+
+app.listen(PORT, () => {
+  console.log(`The application is running on localhost:${PORT}`);
 });
+
+
+
+
 
 
 
